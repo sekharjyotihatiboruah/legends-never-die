@@ -1,0 +1,1047 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #01084d;
+    color: #eee;
+    font-family: "Noto Sans Assamese", sans-serif;
+    overflow-x: hidden;
+}
+
+:root {
+    --red: #a71919;
+    --soft-red: #c52b2b;
+    --gold: #c7a66a;
+    --gray: #858585;
+    --dark-gray: #080330;
+}
+
+
+/* =========================
+   ENTER SCREEN
+========================= */
+
+#enterScreen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #020135 0%,
+            #02083d 45%,
+            #041c3b 100%
+        );
+
+    text-align: center;
+
+    transition:
+        opacity 1.4s ease,
+        visibility 1.4s ease;
+}
+
+#enterScreen.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.enter-content {
+    padding: 30px;
+}
+
+.candle {
+    font-size: 30px;
+    margin-bottom: 30px;
+    animation: candleGlow 3s infinite ease-in-out;
+}
+
+@keyframes candleGlow {
+
+    0%, 100% {
+        opacity: .6;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+}
+
+.eyebrow {
+    color: var(--soft-red);
+    font-size: 10px;
+    letter-spacing: 5px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.enter-content h1,
+.hero h1,
+.final h2 {
+    font-family: "Playfair Display", serif;
+}
+
+.enter-content h1 {
+    font-size: clamp(55px, 10vw, 115px);
+    line-height: .82;
+    letter-spacing: -4px;
+}
+
+.enter-content h1 span,
+.hero h1 span,
+.final h2 span {
+    color: transparent;
+    -webkit-text-stroke: 1px #eee;
+}
+
+.enter-line {
+    width: 50px;
+    height: 1px;
+    background: var(--red);
+    margin: 30px auto 20px;
+}
+
+.enter-content h2 {
+    font-family: "Noto Sans Assamese", sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+#enterBtn {
+    display: block;
+
+    margin: 40px auto 14px;
+
+    padding: 15px 30px;
+
+    color:black;
+    background: lightblue;
+
+    border: 1px solid #d35a0a;
+
+    font-size: 20px;
+    letter-spacing: 3px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    cursor: pointer;
+
+    transition: .4s;
+}
+
+#enterBtn:hover {
+    background: #eee;
+    color: #000;
+}
+
+.enter-content small {
+    color: #555;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   NAV
+========================= */
+
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 28px 7%;
+
+    display: flex;
+    justify-content: space-between;
+
+    z-index: 10;
+}
+
+.logo {
+    font-size: 11px;
+    letter-spacing: 5px;
+}
+
+.music-status {
+    color: #777;
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #1c1416 0%,
+            #090909 45%,
+            #020202 100%
+        );
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle,
+            transparent 20%,
+            rgba(0,0,0,.8) 100%
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    padding: 30px;
+
+    animation: heroAppear 2s ease;
+}
+
+@keyframes heroAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+.hero h1 {
+    font-size: clamp(65px, 12vw, 155px);
+    line-height: .8;
+    letter-spacing: -5px;
+}
+
+.hero-line {
+    width: 65px;
+    height: 1px;
+
+    background: var(--red);
+
+    margin: 35px auto 25px;
+}
+
+.hero h2 {
+    font-size: 38px;
+    font-weight: 400;
+}
+
+.assamese-hero {
+    margin-top: 20px;
+
+    color: #aaa;
+
+    font-size: 16px;
+}
+
+.date {
+    margin-top: 30px;
+
+    color: #555;
+
+    font-family: "Playfair Display", serif;
+    letter-spacing: 5px;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+
+    color: #555;
+
+    font-size: 20px;
+
+    animation: scrollMove 2s infinite;
+}
+
+@keyframes scrollMove {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(8px);
+    }
+
+}
+
+
+/* =========================
+   GENERAL
+========================= */
+
+section {
+    position: relative;
+}
+
+.memorial,
+.memory-section,
+.memories,
+.letter {
+    padding: 150px 9%;
+}
+
+.section-number {
+    position: absolute;
+
+    top: 60px;
+    left: 9%;
+
+    color: #333;
+
+    font-family: "Playfair Display", serif;
+    font-size: 13px;
+}
+
+.memorial {
+    min-height: 80vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background: #050505;
+}
+
+.memorial-content {
+    max-width: 850px;
+}
+
+.memorial h2,
+.memory-content h2,
+.memories-heading h2,
+.letter h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(43px, 6vw, 75px);
+
+    line-height: 1.05;
+}
+
+.memorial h2 span,
+.memory-content h2 span,
+.memories-heading h2 span {
+    color: var(--red);
+}
+
+.body-text {
+    max-width: 650px;
+
+    margin: 35px auto 0;
+
+    color: #858585;
+
+    line-height: 2;
+
+    font-size: 15px;
+}
+
+.candle-symbol {
+    margin-top: 50px;
+
+    font-size: 27px;
+
+    opacity: .75;
+}
+
+
+/* =========================
+   ASSAM MEMORY
+========================= */
+
+.assam-memory {
+    min-height: 700px;
+
+    display: flex;
+    align-items: center;
+
+    background: #080808;
+}
+
+.assam-image {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #050505 0%,
+            rgba(5,5,5,.8) 45%,
+            rgba(5,5,5,.4) 100%
+        ),
+        url("assam.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    opacity: .45;
+
+    filter: grayscale(30%);
+}
+
+.assam-text {
+    position: relative;
+    z-index: 2;
+
+    width: 60%;
+
+    margin-left: 9%;
+}
+
+.assam-text h2 {
+    font-family: "Noto Sans Assamese", sans-serif;
+
+    font-size: clamp(40px, 6vw, 80px);
+
+    line-height: 1.2;
+}
+
+.assam-text h2 span {
+    color: var(--red);
+}
+
+.assam-text > p:last-child {
+    max-width: 550px;
+
+    margin-top: 30px;
+
+    color: #999;
+
+    line-height: 1.9;
+}
+
+
+/* =========================
+   THE VOICE
+========================= */
+
+.memory-section {
+    min-height: 75vh;
+
+    display: flex;
+    align-items: center;
+
+    background: #030303;
+}
+
+.memory-content {
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =========================
+   MEMORIES
+========================= */
+
+.memories {
+    background: #080808;
+}
+
+.memories-heading {
+    margin-bottom: 70px;
+}
+
+.memory-grid {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    border-top: 1px solid #222;
+    border-left: 1px solid #222;
+}
+
+.memory-card {
+    min-height: 250px;
+
+    padding: 45px;
+
+    border-right: 1px solid #222;
+    border-bottom: 1px solid #222;
+
+    transition: .5s;
+}
+
+.memory-card:hover {
+    background: #101010;
+}
+
+.memory-card span {
+    color: var(--red);
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+.memory-card h3 {
+    margin: 30px 0 15px;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 29px;
+}
+
+.memory-card p {
+    color: #777;
+
+    line-height: 1.8;
+}
+
+
+/* =========================
+   LETTER
+========================= */
+
+.letter {
+    background:
+        radial-gradient(
+            circle at center,
+            #151011,
+            #050505 70%
+        );
+
+    text-align: center;
+}
+
+.letter-content {
+    max-width: 800px;
+    margin: auto;
+}
+
+.letter h2 {
+    margin-bottom: 60px;
+}
+
+.letter-text p {
+    color: #999;
+
+    font-size: 17px;
+
+    line-height: 2;
+
+    margin-bottom: 25px;
+}
+
+.letter-text .strong {
+    color: #eee;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 25px;
+
+    margin: 45px 0;
+}
+
+.assamese-message {
+    color: #d5d5d5 !important;
+
+    font-size: 25px !important;
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+.final {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #1b0c0e,
+            #050505 60%,
+            #010101
+        );
+}
+
+.final-candle {
+    font-size: 35px;
+
+    margin-bottom: 30px;
+
+    animation: candleGlow 3s infinite;
+}
+
+.final h2 {
+    font-size: clamp(65px, 12vw, 155px);
+
+    line-height: .8;
+
+    letter-spacing: -5px;
+}
+
+.final h3 {
+    margin-top: 40px;
+
+    font-size: 34px;
+
+    font-weight: 400;
+}
+
+.final-line {
+    width: 50px;
+    height: 1px;
+
+    background: var(--red);
+
+    margin: 30px auto;
+}
+
+.final-date {
+    color: #555;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+}
+
+.final-message {
+    margin-top: 35px;
+
+    color: #777;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 20px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 40px 20px;
+
+    text-align: center;
+
+    background: #010101;
+
+    border-top: 1px solid #151515;
+}
+
+footer p {
+    color: #555;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    margin: 8px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    nav {
+        padding: 22px 6%;
+    }
+
+    .hero h1 {
+        letter-spacing: -3px;
+    }
+
+    .assamese-hero {
+        font-size: 14px;
+    }
+
+    .memorial,
+    .memory-section,
+    .memories,
+    .letter {
+        padding: 110px 7%;
+    }
+
+    .section-number {
+        left: 7%;
+        top: 45px;
+    }
+
+    .assam-memory {
+        min-height: 600px;
+    }
+
+    .assam-text {
+        width: 85%;
+        margin-left: 7%;
+    }
+
+    .memory-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .memory-card {
+        min-height: 210px;
+        padding: 30px;
+    }
+
+    .letter-text p {
+        font-size: 15px;
+    }
+
+    .assamese-message {
+        font-size: 20px !important;
+    }
+
+    .final h2 {
+        letter-spacing: -3px;
+    }
+
+}
+/* =========================
+   MEMORIAL PHOTO
+========================= */
+
+.memorial-photo {
+    position: relative;
+
+    width: min(330px, 75vw);
+
+    margin: 45px auto 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* PHOTO */
+
+.memorial-photo img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+
+    object-fit: cover;
+
+    display: block;
+
+    filter:
+        grayscale(20%)
+        contrast(1.05)
+        brightness(.78);
+
+    border: 1px solid #292929;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.8);
+}
+
+
+/* DARK FADE AT BOTTOM OF PHOTO */
+
+.memorial-photo::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 45px;
+
+    height: 45%;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,.85)
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   BIG MEMORIAL CANDLE
+========================= */
+
+.big-candle {
+    position: relative;
+
+    width: 75px;
+    height: 150px;
+
+    margin-top: -18px;
+
+    z-index: 5;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* FLAME */
+
+.flame {
+    position: relative;
+
+    width: 38px;
+    height: 58px;
+
+    margin-bottom: -5px;
+
+    background:
+        radial-gradient(
+            ellipse at center bottom,
+            #fff 0%,
+            #f4c56a 35%,
+            #c65b22 65%,
+            transparent 70%
+        );
+
+    border-radius: 50% 50% 45% 45%;
+
+    transform: rotate(1deg);
+
+    filter:
+        drop-shadow(0 0 12px rgba(255,170,70,.8))
+        drop-shadow(0 0 30px rgba(210,80,30,.5));
+
+    animation: memorialFlame 2.2s infinite ease-in-out;
+}
+
+
+/* INNER FLAME */
+
+.flame span {
+    position: absolute;
+
+    width: 15px;
+    height: 27px;
+
+    left: 50%;
+    bottom: 7px;
+
+    transform: translateX(-50%);
+
+    background: #fff;
+
+    border-radius: 50% 50% 45% 45%;
+
+    box-shadow:
+        0 0 12px #fff;
+}
+
+
+@keyframes memorialFlame {
+
+    0%, 100% {
+        transform:
+            rotate(-2deg)
+            scale(1);
+    }
+
+    25% {
+        transform:
+            rotate(2deg)
+            scale(1.05);
+    }
+
+    50% {
+        transform:
+            rotate(-1deg)
+            scale(.96);
+    }
+
+    75% {
+        transform:
+            rotate(3deg)
+            scale(1.04);
+    }
+
+}
+
+
+/* CANDLE BODY */
+
+.candle-body {
+    position: relative;
+
+    width: 58px;
+    height: 85px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8e8068,
+            #e5d5ad,
+            #a69676
+        );
+
+    border-radius: 5px 5px 3px 3px;
+
+    box-shadow:
+        0 0 20px rgba(255,200,120,.15);
+        align-items: center;
+}
+
+
+/* WAX TOP */
+
+.candle-body::before {
+    content: "";
+
+    position: absolute;
+
+    top: -5px;
+    left: 0;
+
+    width: 58px;
+    height: 10px;
+
+    background: #dfcfaa;
+
+    border-radius: 50%;
+}
+
+
+/* WAX DRIP */
+
+.candle-body::after {
+    content: "";
+
+    position: absolute;
+
+    right: 9px;
+    top: 3px;
+
+    width: 8px;
+    height: 27px;
+
+    background: #d4c49f;
+
+    border-radius: 0 0 8px 8px;
+}
+
+
+/* CANDLE BASE */
+
+.candle-base {
+    width: 82px;
+    height: 12px;
+
+    margin-top: 2px;
+
+    background:
+        linear-gradient(
+            #a88d61,
+            #705b3c
+        );
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.7);
+}
+
+
+/* LIGHT AROUND CANDLE */
+
+.big-candle::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    top: -15px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,175,75,.14),
+            transparent 65%
+        );
+
+    z-index: -1;
+
+    pointer-events: none;
+
+    animation: candleLight 2.2s infinite ease-in-out;
+}
+
+
+@keyframes candleLight {
+
+    0%, 100% {
+        opacity: .65;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.12);
+    }
+
+}
+@media (max-width: 700px) {
+
+    .memorial-photo {
+        width: min(290px, 78vw);
+        margin-top: 35px;
+    }
+
+    .big-candle {
+        transform: scale(.9);
+        transform-origin: top center;
+    }
+
+}
